@@ -1,31 +1,30 @@
 // Лабораторная работа №1. Вариант 66.
 // Выполнил Филиппов С. Н., группа ПИ-52.
 #include <iostream>
-#include <windows.h>
+#include <clocale>
 using namespace std;
 
 // ===== Расчетные функции варианта =====
 
-// Конвектор величин: килограммы -> фунты
-double kgToLg(double kg) {
+// Конвертер величин: килограммы -> фунты
+double kgToLb(double kg) {
 	return kg * 2.20462;
 }
 
-// Конвектор величин: фунты -> килограммы
-double lbTokg(double lb) {
-	return lb / 2.20432;
+// Конвертер величин: фунты -> килограммы
+double lbToKg(double lb) {
+	return lb / 2.20462;
 }
 
 // ===== Главная функция: меню =====
 
 int main() {
-	SetConsoleOutputCP(1251);
-	SetConsoleCP(1251);
+	setlocale(LC_ALL, "Ru");
 	int choice;
-	double kg, lg;
+	double kg, lb;
 
 	do {
-		cout << "\n=== Вариант 66: конвектор велечин: килограммы <-> фунты ===\n";
+		cout << "\n=== Вариант 66: конвертер величин: килограммы <-> фунты ===\n";
 		cout << "1. Килограммы в фунты\n";
 		cout << "2. Фунты в килограммы\n";
 		cout << "0. Выход\n";
@@ -36,15 +35,16 @@ int main() {
 			case 1:
 				cout << "Введите массу в килограммах: ";
 				cin >> kg;
-				cout << "Результат в фунтах: " << kgToLg(kg) << " lb\n";
+				cout << "Результат в фунтах: " << kgToLb(kg) << "\n";
 				break;
 			case 2:
 				cout << "Введите массу в фунтах: ";
-				cin >> lg;
-				cout << "Результат в килограаммах: " << lgToKg(lg) << " kg\n";
+				cin >> lb;
+				cout << "Результат в килограммах: " << lbToKg(lb) << "\n";
 				break;
 			case 0:
 				cout << "Работа завершина.\n";
+				break;
 			default:
 				cout << "Такого пункта нет.\n";
 		}
